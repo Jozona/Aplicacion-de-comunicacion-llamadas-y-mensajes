@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes , Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Perfil from './pages/Perfil';
+import Test from './pages/Test';
+import { useAuth } from "./Hooks/UseAuth";
+import { HomeLayout } from './Components/HomeLayout';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import swal from 'sweetalert2';
 
 function App() {
+
+  const mostrarAlerta=()=>{
+    swal('Esta cosa pa');
+  }
+
+  const { user } = useAuth();
+  const funcionPrueba = ()=>{
+    console.dir("Fuera del componente");
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />}/>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/test" element={<Test />} />
+
+      <Route path="/home" element={<HomeLayout login={user}/>}>
+        <Route path="start" element={<Home login={user}/>} />
+        <Route path="perfil" element={<Perfil login={user} funcion={funcionPrueba}/>} />
+        <Route path="settings" element={<Home login={user}/>} />
+      </Route>
+
+      <Route
+        path="*"
+        element={<Navigate to="/" />}
+      />
+        </Routes>
   );
 }
 

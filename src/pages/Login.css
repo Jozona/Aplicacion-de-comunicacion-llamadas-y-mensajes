@@ -1,0 +1,7 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background-image: url("../imgs/videoblocks-close-up-view-of-female-hands-typing-on-laptop-computer-keyboard-young-woman-sitting-on-the-table-and-working_slwifn2wdw_thumbnail-1080_01.webp");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
