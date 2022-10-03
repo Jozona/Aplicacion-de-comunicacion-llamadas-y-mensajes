@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Perfil from './pages/Perfil';
 import Test from './pages/Test';
+import Chats from './pages/Chats';
 import { useAuth } from "./Hooks/UseAuth";
 import { HomeLayout } from './Components/HomeLayout';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,6 +27,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/test" element={<Test />} />
+      <Route path="/Chats" element={<Chats />} />
 
       <Route path="/home" element={<HomeLayout login={user}/>}>
         <Route path="start" element={<Home login={user}/>} />

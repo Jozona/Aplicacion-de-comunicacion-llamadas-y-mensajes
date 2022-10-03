@@ -14,9 +14,9 @@ function Navigation() {
   }
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <Navbar.Brand > Home </Navbar.Brand>
+    <Navbar bg="dark" expand="lg">
+      <Container>
+        <Navbar.Brand className='text-light'> Teams2 </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -24,23 +24,34 @@ function Navigation() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <NavDropdown title="Opciones" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Videollamada</NavDropdown.Item>
+            <Nav.Item>
+              <Nav.Link className='text-light'>
+                Inicio
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link className='text-light'>
+                Mensajes
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link className='text-light'>
+                Tareas
+              </Nav.Link>
+            </Nav.Item>
+
+          </Nav>
+          <Nav>
+            <NavDropdown title={<span className="text-light">Tu perfil</span>} id="navbarScrollingDropdown" >
+              <NavDropdown.Item href="#action3">Perfil</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Chat
+                Salir de sesion
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={()=>{navigate("/home/perfil", { replace: true });}}>
+              <NavDropdown.Item onClick={() => { navigate("/home/perfil", { replace: true }); }}>
                 Perfil
               </NavDropdown.Item>
             </NavDropdown>
-            </Nav>
-          <Nav>
-            <Nav.Item>
-              <Nav.Link onClick={endSession}>
-                  Sign Out
-                </Nav.Link>
-            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>

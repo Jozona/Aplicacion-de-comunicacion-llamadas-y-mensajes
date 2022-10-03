@@ -1,0 +1,7 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background-image: url("../imgs/fondoChat.webp");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
