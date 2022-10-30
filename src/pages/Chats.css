@@ -1,7 +1,45 @@
-.gradient-custom {
+.gradient-custom2 {
     /* fallback for old browsers */
     background-image: url("../imgs/fondoChat.webp");
-    background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
+    background-size:     cover;      
     background-position: center center;  
+    height: 100vh;
 }
+
+.chatContainer{
+    max-width: 67rem;
+    max-height: 39rem;
+}
+
+.separar{
+    display: flex;
+    gap: 3;
+}
+
+.img{
+    object-fit: cover;
+}
+
+@media (max-width: 800px) {
+    .separar{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .separar div{
+        margin: 5px;
+        
+    }
+    .bodyBack {
+        /* fallback for old browsers */
+        background-image: url("../imgs/fondoChat.webp");
+        background-size:     cover;      
+        background-position: center center;  
+        height: 200vh;
+    }
+  }
+  

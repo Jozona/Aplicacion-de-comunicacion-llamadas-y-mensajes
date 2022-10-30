@@ -1,0 +1,5 @@
+.Test{
+    height: 100vh;
+    background: rgb(25,157,128);
+    background: linear-gradient(90deg, rgba(25,157,128,1) 0%, rgba(108,196,182,1) 53%, rgba(0,212,255,1) 100%);
+}

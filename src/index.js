@@ -7,17 +7,23 @@ import * as serviceWorker from './ServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from './Hooks/UseAuth';
+import { AuthContextProvider } from './Context/AuthContext';
+import { ChatContextProvider } from './Context/ChatContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </BrowserRouter>
+  <AuthContextProvider>
+    <ChatContextProvider>
+    <React.StrictMode>
+      <BrowserRouter>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </BrowserRouter>
     </React.StrictMode>
-  
+    </ChatContextProvider>
+  </AuthContextProvider>
+
 );
 
 // If you want your app to work offline and load faster, you can change

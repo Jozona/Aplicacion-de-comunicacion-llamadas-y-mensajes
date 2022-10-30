@@ -4,6 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useAuth } from "../Hooks/UseAuth";
 import { useNavigate } from "react-router-dom";
+import { signOut } from 'firebase/auth';
+import { auth } from "../firebase";
 
 function Navigation() {
   const { logout } = useAuth();
@@ -16,7 +18,15 @@ function Navigation() {
   return (
     <Navbar bg="dark" expand="lg">
       <Container>
-        <Navbar.Brand className='text-light'> Teams2 </Navbar.Brand>
+      <Navbar.Brand href="#home">
+            <img
+              src="https://cdn.discordapp.com/attachments/976686244526436392/1026732235577098320/logo_sin_letras.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -25,12 +35,12 @@ function Navigation() {
             navbarScroll
           >
             <Nav.Item>
-              <Nav.Link className='text-light'>
+              <Nav.Link onClick={() => { navigate("/Test", { replace: true }); }} className='text-light'>
                 Inicio
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link className='text-light'>
+              <Nav.Link onClick={() => { navigate("/Chats", { replace: true }); }} className='text-light'>
                 Mensajes
               </Nav.Link>
             </Nav.Item>
@@ -45,11 +55,11 @@ function Navigation() {
             <NavDropdown title={<span className="text-light">Tu perfil</span>} id="navbarScrollingDropdown" >
               <NavDropdown.Item href="#action3">Perfil</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Salir de sesion
+                
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={() => { navigate("/home/perfil", { replace: true }); }}>
-                Perfil
+              <NavDropdown.Item onClick={()=>signOut(auth)}>
+              Salir de sesion
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
