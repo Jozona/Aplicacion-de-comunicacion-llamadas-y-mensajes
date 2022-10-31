@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from "react-router-dom";
 
 import { useContext, useState, useEffect } from "react";
 import {
@@ -25,13 +26,14 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { AuthConext } from '../Context/AuthContext';
 import Chats from '../pages/Chats';
 import { ChatConext } from '../Context/ChatContext';
+import GroupButton from './GroupButton';
 
 const Search = () => {
 
     const [username, setUsername] = useState("");
     const [user, setUser] = useState(null);
     const [err, setErr] = useState(false);
-
+    const navigate = useNavigate();
     const { currentUser } = useContext(AuthConext);
 
     const handleSearch = async () => {
@@ -133,6 +135,7 @@ const Search = () => {
 
     return (
         <ListGroup as="ol" >
+            <GroupButton/>
             <InputGroup className="mb-3">
                 <Form.Control
                     placeholder="Buscar usuario"
